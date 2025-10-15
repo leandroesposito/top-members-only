@@ -1,0 +1,24 @@
+{
+  "name": "top-members-only",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandroesposito/top-members-only.git#main"
+  },
+  "author": "Leandro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandroesposito/top-members-only/issues"
+  },
+  "homepage": "https://github.com/leandroesposito/top-members-only/tree/main#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1"
+  }
+}
