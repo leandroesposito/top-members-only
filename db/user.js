@@ -74,6 +74,7 @@ async function deleteUser(user) {
       break;
     case "number":
       id = user;
+      break;
     default:
       throw new Error("Invalid parameter type");
   }
