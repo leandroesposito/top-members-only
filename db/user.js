@@ -1,6 +1,8 @@
 const { runGetquery, runQuery } = require("./queries");
 
 async function insertUser(user) {
+  const { first_name, last_name, username, password, is_member, is_admin } =
+    user;
   const query = `
     INSERT INTO users (
         first_name, last_name, username, password, is_member, is_admin
@@ -9,12 +11,12 @@ async function insertUser(user) {
       RETURNING id;
   `;
   const params = [
-    user.first_name,
-    user.last_name,
-    user.username,
-    user.password,
-    user.is_member,
-    user.is_admin,
+    first_name,
+    last_name,
+    username,
+    password,
+    is_member,
+    is_admin,
   ];
 
   const rows = runGetquery(query, params);
@@ -37,6 +39,8 @@ async function getAllUsers() {
 }
 
 async function updateUser(user) {
+  const { first_name, last_name, username, password, is_member, is_admin, id } =
+    user;
   const query = `
     UPDATE users
       SET
@@ -49,13 +53,13 @@ async function updateUser(user) {
       WHERE id = $7;
   `;
   const params = [
-    user.first_name,
-    user.last_name,
-    user.username,
-    user.password,
-    user.is_member,
-    user.is_admin,
-    user.id,
+    first_name,
+    last_name,
+    username,
+    password,
+    is_member,
+    is_admin,
+    id,
   ];
 
   await runQuery(query, params);
