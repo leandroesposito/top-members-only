@@ -19,7 +19,7 @@ async function insertUser(user) {
     is_admin,
   ];
 
-  const rows = runGetquery(query, params);
+  const rows = await runGetquery(query, params);
   return rows[0].id;
 }
 
@@ -27,14 +27,14 @@ async function getUserById(id) {
   const query = `SELECT * FROM users WHERE id = $1;`;
   const params = [id];
 
-  const rows = runGetquery(query, params);
+  const rows = await runGetquery(query, params);
   return rows;
 }
 
 async function getAllUsers() {
   const query = `SELECT * FROM users;`;
 
-  const rows = runGetquery(query);
+  const rows = await runGetquery(query);
   return rows;
 }
 
