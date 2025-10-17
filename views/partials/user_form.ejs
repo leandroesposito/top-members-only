@@ -1,0 +1,56 @@
+<form action="<%= locals.action %>" method="POST">
+  <% if (locals.user && locals.user.id) { %>
+  <input type="hidden" name="id" />
+  <% } %>
+  <div class="form-row">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" name="first-name" maxlength="50"
+      value="<%= locals.user ? locals.user.first_name : "" %>"
+    />
+  </div>
+  <div class="form-row">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" name="last-name" maxlength="50"
+      value="<%= locals.user ? locals.user.last_name : "" %>"
+    />
+  </div>
+  <div class="form-row">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" maxlength="50" required
+      value="<%= locals.user ? locals.user.username : "" %>"
+    />
+  </div>
+  <div class="form-row">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+  </div>
+  <div class="form-row">
+    <label for="confirm-password">Confirm password</label>
+    <input type="password" id="confirm-password" name="confirm-password" required />
+  </div>
+  <div class="form-row">
+    <label for="is-member">Is member</label>
+    <input type="checkbox" id="is-member" name="is-member" maxlength="50"
+      value="on"
+      <%= locals.user && locals.user.is_member ? "checked" : "" %>
+    />
+  </div>
+  <div class="form-row <%= locals.user && !locals.user.is_member ? "hidden" : "" %>">
+    <label for="member-password">Member password</label>
+    <input type="password" id="member-password" name="member-password" />
+  </div>
+  <div class="form-row">
+    <label for="is-admin">Is admin</label>
+    <input type="checkbox" id="is-admin" name="is-admin" maxlength="50"
+      value="on"
+      <%= locals.user && locals.user.is_admin ? "checked" : "" %>
+    />
+  </div>
+  <div class="form-row <%= locals.user && !locals.user.is_admin ? "hidden" : "" %>">
+    <label for="admin-password">Admin password</label>
+    <input type="password" id="admin-password" name="admin-password" />
+  </div>
+  <div class="buttons">
+    <button class="button" type="submit">Submit</button>
+  </div>
+</form>
