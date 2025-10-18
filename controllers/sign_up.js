@@ -12,6 +12,13 @@ const validateUser = [
   validator.bodyText("password"),
   validator.bodyText("confirm-password"),
   validator.bodyEqual("password", "confirm-password"),
+  body("username").custom((value) => {
+    const user = userDB.getUserByUsername(value);
+    if (user) {
+      throw new Error(`Another account already has the username: ${value}`);
+    }
+    return true;
+  }),
   body("is-member").custom((value, { req }) => {
     if (value && req.body["member-password"] !== process.env.MEMBER_PASSWORD) {
       throw new Error("Incorrect member password");
