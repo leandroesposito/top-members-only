@@ -1,0 +1,4 @@
+<a href="/log-in">login</a>
+<a href="/sign-up">sign-up</a>
+<% if (locals.currentUser) { %> Welcome <%= JSON.stringify(currentUser, null, 2)
+%> <% } %>
