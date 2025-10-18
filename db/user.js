@@ -31,6 +31,11 @@ async function getUserById(id) {
   return rows[0];
 }
 
+async function getSafeUserById(id) {
+  const { password, ...user } = await getUserById(id);
+  return user;
+}
+
 async function getAllUsers() {
   const query = `SELECT * FROM users;`;
 
@@ -99,6 +104,7 @@ async function deleteUser(user) {
 module.exports = {
   insertUser,
   getUserById,
+  getSafeUserById,
   getAllUsers,
   getUserByUsername,
   updateUser,
