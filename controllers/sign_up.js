@@ -62,8 +62,8 @@ const signUpPost = [
 
     const id = await userDB.insertUser(user);
     if (id) {
-      res.locals.sucess = res.locals.sucess || [];
-      res.locals.sucess.push("User created sucessfuly");
+      res.locals.success = res.locals.success || [];
+      res.locals.success.push({ msg: "User created successfuly" });
     } else {
       res.locals.errors = res.locals.errors || [];
       res.locals.errors.push("Error creating user");
