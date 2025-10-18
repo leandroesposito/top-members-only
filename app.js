@@ -5,6 +5,8 @@ const session = require("express-session");
 const passport = require("passport");
 const { strategy, serializeUser, deserializeUser } = require("./user-auth");
 const flash = require("connect-flash");
+const pool = require("./db/pool");
+const pgSession = require("connect-pg-simple")(session);
 
 const app = express();
 const signUpRoute = require("./routes/sign_up");
@@ -16,6 +18,10 @@ app.set("view engine", "ejs");
 app.use(flash());
 app.use(
   session({
+    store: new pgSession({
+      pool: pool,
+      createTableIfMissing: true,
+    }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
