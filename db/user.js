@@ -38,6 +38,14 @@ async function getAllUsers() {
   return rows;
 }
 
+async function getUserByUsername(username) {
+  const query = `SELECT * FROM users WHERE username = $1`;
+  const params = [username];
+
+  const rows = await runGetquery(query, params);
+  return rows[0];
+}
+
 async function updateUser(user) {
   const { first_name, last_name, username, password, is_member, is_admin, id } =
     user;
@@ -92,6 +100,7 @@ module.exports = {
   insertUser,
   getUserById,
   getAllUsers,
+  getUserByUsername,
   updateUser,
   deleteUser,
 };
