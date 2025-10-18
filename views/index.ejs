@@ -1,4 +1,7 @@
 <a href="/log-in">login</a>
 <a href="/sign-up">sign-up</a>
-<% if (locals.currentUser) { %> Welcome <%= JSON.stringify(currentUser, null, 2)
-%> <% } %>
+
+<% if (locals.currentUser) { %> Welcome <%= JSON.stringify(currentUser, null,
+2)%>
+<a href="log-out">log-out</a>
+<% } %>
