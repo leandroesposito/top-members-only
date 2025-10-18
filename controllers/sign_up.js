@@ -35,7 +35,6 @@ function signUpGet(req, res) {
 const signUpPost = [
   validateUser,
   async function signUpPost(req, res) {
-    console.log(req.body);
     const user = {
       first_name: req.body["first-name"],
       last_name: req.body["last-name"],
