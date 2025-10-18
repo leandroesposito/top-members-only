@@ -12,8 +12,8 @@ const validateUser = [
   validator.bodyText("password"),
   validator.bodyText("confirm-password"),
   validator.bodyEqual("password", "confirm-password"),
-  body("username").custom((value) => {
-    const user = userDB.getUserByUsername(value);
+  body("username").custom(async (value) => {
+    const user = await userDB.getUserByUsername(value);
     if (user) {
       throw new Error(`Another account already has the username: ${value}`);
     }
