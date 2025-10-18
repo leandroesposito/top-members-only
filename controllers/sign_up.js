@@ -4,6 +4,7 @@ const { validationResult } = require("express-validator");
 const validator = require("./validator");
 const { body } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const logInController = require("./log_in");
 
 const validateUser = [
   validator.bodyText("first-name", 50),
@@ -64,12 +65,13 @@ const signUpPost = [
     if (id) {
       res.locals.success = res.locals.success || [];
       res.locals.success.push({ msg: "User created successfuly" });
+      return logInController.logInGet(req, res);
     } else {
       res.locals.errors = res.locals.errors || [];
-      res.locals.errors.push("Error creating user");
+      res.locals.errors.push({ msg: "Error creating user" });
+      res.locals.user = user;
+      return signUpGet(req, res);
     }
-
-    signUpGet(req, res);
   },
 ];
 
