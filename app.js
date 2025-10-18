@@ -35,6 +35,14 @@ app.use((req, res, next) => {
 
 app.use("/sign-up", signUpRoute);
 app.use("/log-in", logInRouter);
+app.use("/log-out", (req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(error);
+    }
+    res.redirect("/");
+  });
+});
 app.use("/", (req, res) => {
   res.status(200).render("index.ejs");
 });
