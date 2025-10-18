@@ -24,7 +24,7 @@ const serializeUser = (user, done) => {
 
 const deserializeUser = async (id, done) => {
   try {
-    const user = await userDB.getUserById(id);
+    const user = await userDB.getSafeUserById(id);
     done(null, user);
   } catch (error) {
     done(error);
