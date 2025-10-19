@@ -1,0 +1,3 @@
+<% if (locals.currentUser && !currentUser.is_member && !currentUser.is_admin) { %>
+  <a href="/join" class="button">Become a member!</a>
+<% } %>
