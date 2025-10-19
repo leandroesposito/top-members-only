@@ -50,6 +50,38 @@ const users = [
     is_member: false,
     is_admin: false,
   },
+  {
+    first_name: "admin",
+    last_name: "admin",
+    username: "admin",
+    password: "admin", // Example hashed password
+    is_member: false,
+    is_admin: true,
+  },
+  {
+    first_name: "member",
+    last_name: "member",
+    username: "member",
+    password: "member", // Example hashed password
+    is_member: true,
+    is_admin: false,
+  },
+  {
+    first_name: "user",
+    last_name: "user",
+    username: "user",
+    password: "user", // Example hashed password
+    is_member: false,
+    is_admin: false,
+  },
+  {
+    first_name: "god",
+    last_name: "god",
+    username: "god",
+    password: "god", // Example hashed password
+    is_member: true,
+    is_admin: true,
+  },
 ];
 
 const messages = [
