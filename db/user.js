@@ -78,6 +78,31 @@ async function updateUser(user) {
   await runQuery(query, params);
 }
 
+async function promoteToMember(user) {
+  let id;
+
+  switch (typeof user) {
+    case "object":
+      id = user.id;
+      break;
+    case "number":
+      id = user;
+      break;
+    default:
+      throw new Error("Invalid parameter type");
+  }
+
+  const query = `
+    UPDATE users
+      SET
+        is_member = true,
+      WHERE id = $1;
+  `;
+  const params = [id];
+
+  await runQuery(query, params);
+}
+
 async function deleteUser(user) {
   let id;
 
@@ -108,5 +133,6 @@ module.exports = {
   getAllUsers,
   getUserByUsername,
   updateUser,
+  promoteToMember,
   deleteUser,
 };
