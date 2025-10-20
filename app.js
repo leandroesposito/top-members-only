@@ -48,10 +48,12 @@ app.use((req, res, next) => {
   // extract session flash messages
   const success = req.flash("success");
   const error = req.flash("error");
+  const user = req.flash("user");
 
   // write messages to response
   res.locals.success = res.locals.success.concat(success);
   res.locals.error = res.locals.error.concat(error);
+  res.locals.user = user.length > 0 ? user[0] : null;
 
   next();
 });
