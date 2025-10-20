@@ -1,0 +1,10 @@
+<%- include('./partials/messages.ejs'); %>
+<form action="/join" method="POST">
+  <div class="form-row">
+    <label for="member-password">
+      Member Password
+    </label>
+    <input type="password" name="member-password" id="member-password" required >
+  </div>
+  <button class="button" type="submit">Submit</button>
+</form>
