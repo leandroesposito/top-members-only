@@ -1,10 +1,8 @@
 require("dotenv").config();
 const userDB = require("../db/user");
-const { validationResult } = require("express-validator");
 const validator = require("./validator");
 const { body } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const logInController = require("./log_in");
 
 const validateUser = [
   validator.bodyText("first-name", 50),
@@ -42,6 +40,7 @@ function signUpGet(req, res) {
 
 const signUpPost = [
   validateUser,
+  validator.checkValidation,
   async function signUpPost(req, res) {
     const user = {
       first_name: req.body["first-name"],
@@ -52,25 +51,21 @@ const signUpPost = [
       is_admin: req.body["is-admin"] ?? false,
     };
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.locals.errors = errors.array();
-      res.locals.user = user;
-      return signUpGet(req, res);
+    if (res.locals.errors) {
+      req.flash("user", user);
+      return res.redirect("/sign-up");
     }
 
     user.password = await bcrypt.hash(user.password, 10);
 
     const id = await userDB.insertUser(user);
     if (id) {
-      res.locals.success = res.locals.success || [];
-      res.locals.success.push({ msg: "User created successfuly" });
-      return logInController.logInGet(req, res);
+      req.flash("success", "User created successfuly");
+      return res.redirect("/log-in");
     } else {
-      res.locals.errors = res.locals.errors || [];
-      res.locals.errors.push({ msg: "Error creating user" });
-      res.locals.user = user;
-      return signUpGet(req, res);
+      req.flash("error", "Error creating user");
+      req.flash("user", JSON.stringify(user));
+      return res.redirect("/sign-up");
     }
   },
 ];
