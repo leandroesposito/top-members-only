@@ -44,4 +44,5 @@ module.exports = {
   bodyBoolean,
   bodyDate,
   bodyEqual,
+  checkValidation,
 };
