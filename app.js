@@ -46,8 +46,8 @@ app.use((req, res, next) => {
   res.locals.error = res.locals.error || [];
 
   // extract session flash messages
-  const success = req.flash("success") || [];
-  const error = req.flash("error") || [];
+  const success = req.flash("success");
+  const error = req.flash("error");
 
   // write messages to response
   res.locals.success = res.locals.success.concat(success);
