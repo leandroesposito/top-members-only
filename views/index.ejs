@@ -4,6 +4,6 @@
 
 <%- include('./partials/become_member.ejs') %>
 <% if (locals.currentUser) { %>
-  Welcome <%= JSON.stringify(currentUser, null,2) %>
+  Welcome <%= JSON.stringify(currentUser, null,2); %>
   <a href="log-out">log-out</a>
 <% } %>
