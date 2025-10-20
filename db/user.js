@@ -95,7 +95,7 @@ async function promoteToMember(user) {
   const query = `
     UPDATE users
       SET
-        is_member = true,
+        is_member = true
       WHERE id = $1;
   `;
   const params = [id];
