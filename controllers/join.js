@@ -1,7 +1,6 @@
 const validator = require("./validator");
 const auth_validator = require("./auth_validator");
 const userDB = require("../db/user");
-const { validationResult } = require("express-validator");
 
 function joinGet(req, res) {
   const flashErrors =
@@ -28,11 +27,10 @@ const joinPost = [
     }
     return true;
   }),
+  validator.checkValidation,
   async function joinPost(req, res) {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.locals.errors = errors.array();
-      return joinGet(req, res);
+    if (res.locals.errors) {
+      return res.redirect("/join");
     }
 
     await userDB.promoteToMember(req.user.id);
