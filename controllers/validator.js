@@ -32,7 +32,7 @@ function checkValidation(req, res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     errors.array().forEach((message) => {
-      req.flash("error", message);
+      req.flash("error", message.msg);
     });
     res.locals.errors = true;
   }
