@@ -40,6 +40,22 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  // initialize if doesn't exist
+  res.locals.success = res.locals.success || [];
+  res.locals.error = res.locals.error || [];
+
+  // extract session flash messages
+  const success = req.flash("success") || [];
+  const error = req.flash("error") || [];
+
+  // write messages to response
+  res.locals.success = res.locals.success.concat(success);
+  res.locals.error = res.locals.error.concat(error);
+
+  next();
+});
+
 app.use("/sign-up", signUpRoute);
 app.use("/log-in", logInRouter);
 app.use("/log-out", (req, res, next) => {
