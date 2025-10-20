@@ -24,8 +24,8 @@ const joinPost = [
     }
 
     await userDB.promoteToMember(req.user.id);
-    res.locals.success = [{ msg: "Welcome new member" }];
-    res.status(200).render("index.ejs");
+    req.flash("success", "Welcome new member");
+    res.redirect("/");
   },
 ];
 
