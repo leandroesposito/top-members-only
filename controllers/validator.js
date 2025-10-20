@@ -1,4 +1,4 @@
-const { body } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 function bodyText(field, maxLength = Number.MAX_SAFE_INTEGER) {
   return body(field)
@@ -26,6 +26,17 @@ function bodyEqual(field1, field2) {
       return value === req.body[field2];
     })
     .withMessage(`${field1} must be equal to ${field2}`);
+}
+
+function checkValidation(req, res, next) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    errors.array().forEach((message) => {
+      req.flash("error", message);
+    });
+    res.locals.errors = true;
+  }
+  next();
 }
 
 module.exports = {
