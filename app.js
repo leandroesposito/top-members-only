@@ -11,6 +11,7 @@ const pgSession = require("connect-pg-simple")(session);
 const app = express();
 const signUpRoute = require("./routes/sign_up");
 const logInRouter = require("./routes/log_in");
+const joinRouter = require("./routes/join");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -68,6 +69,7 @@ app.use("/log-out", (req, res, next) => {
     res.redirect("/");
   });
 });
+app.use("/join", joinRouter);
 app.use("/", (req, res) => {
   res.status(200).render("index.ejs");
 });
