@@ -32,8 +32,13 @@ async function getUserById(id) {
 }
 
 async function getSafeUserById(id) {
-  const { password, ...user } = await getUserById(id);
-  return user;
+  try {
+    const { password, ...user } = await getUserById(id);
+    return user;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 async function getAllUsers() {
