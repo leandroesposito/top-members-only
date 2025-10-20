@@ -2,7 +2,7 @@
 <a href="/sign-up">sign-up</a>
 
 
-<%- include('./partials/become_member.ejs') %>
+<%- include('./partials/become_member.ejs'); %>
 <% if (locals.currentUser) { %>
   Welcome <%= JSON.stringify(currentUser, null,2); %>
   <a href="log-out">log-out</a>
