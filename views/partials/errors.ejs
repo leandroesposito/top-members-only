@@ -1,4 +1,4 @@
-<% if (locals.error) { %>
+<% if (locals.error && locals.error.length > 0) { %>
   <div class="errors">
     <% error.forEach(message => { %>
     <div class="error"><%= message %></div>

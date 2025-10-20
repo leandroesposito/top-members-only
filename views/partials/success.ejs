@@ -1,4 +1,4 @@
-<% if (locals.success) { %>
+<% if (locals.success && locals.success.length > 0) { %>
   <div class="success">
     <% success.forEach(message => { %>
       <div class="success"><%= message %></div>
