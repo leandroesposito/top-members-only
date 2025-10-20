@@ -3,9 +3,13 @@ const auth_validator = require("./auth_validator");
 const userDB = require("../db/user");
 const { body } = require("express-validator");
 
-function joinGet(req, res) {
-  res.status(200).render("join.ejs", { title: "Become a member" });
-}
+const joinGet = [
+  auth_validator.isAuthenticated,
+  auth_validator.isNotMember,
+  function joinGet(req, res) {
+    res.status(200).render("join.ejs", { title: "Become a member" });
+  },
+];
 
 const joinPost = [
   auth_validator.isAuthenticated,
