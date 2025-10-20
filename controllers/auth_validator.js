@@ -19,7 +19,7 @@ function isNotMember(req, res, next) {
     return next();
   }
 
-  req.flash("error", "You already are a member");
+  req.flash("error", "You are already a member");
   res.redirect("/");
 }
 
