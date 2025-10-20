@@ -3,17 +3,6 @@ const auth_validator = require("./auth_validator");
 const userDB = require("../db/user");
 
 function joinGet(req, res) {
-  const flashErrors =
-    req.flash && typeof req.flash === "function" ? req.flash("error") : [];
-  if (flashErrors.length > 0) {
-    if (!res.locals.errors) {
-      res.locals.errors = [];
-    }
-    for (const message of flashErrors) {
-      res.locals.errors.push({ msg: message });
-    }
-  }
-
   res.status(200).render("join.ejs", { title: "Become a member" });
 }
 
