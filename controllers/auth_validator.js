@@ -19,8 +19,8 @@ function isNotMember(req, res, next) {
     return next();
   }
 
-  res.locals.errors = [{ msg: "You already are a member" }];
-  res.render("index.ejs");
+  req.flash("error", "You already are a member");
+  res.redirect("/");
 }
 
 function isAdmin(req, res, next) {
