@@ -1,9 +1,9 @@
-<a href="/log-in">login</a>
-<a href="/sign-up">sign-up</a>
+<%- include('./partials/log_in_link.ejs') %>
+<%- include('./partials/sign_up_link.ejs') %>
 
 <%- include('./partials/messages.ejs'); %>
 <%- include('./partials/become_member.ejs'); %>
 <% if (locals.currentUser) { %>
   Welcome <%= JSON.stringify(currentUser, null,2); %>
-  <a href="log-out">log-out</a>
+  <%- include('./partials/log_out_link.ejs') %>
 <% } %>
