@@ -3,6 +3,9 @@
 
 <%- include('./partials/messages.ejs'); %>
 <%- include('./partials/become_member.ejs'); %>
+<div>
+  <%- include('./partials/new_message_link.ejs') %>
+</div>
 <% if (locals.currentUser) { %>
   Welcome <%= JSON.stringify(currentUser, null,2); %>
   <%- include('./partials/log_out_link.ejs') %>
