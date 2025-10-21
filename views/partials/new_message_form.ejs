@@ -1,0 +1,13 @@
+<form action="/new-message" method="POST">
+  <div class="form-row">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" maxlength="100" required
+      value="<%= locals.message ? message.text : "" %>"
+    >
+  </div>
+  <div class="form-row">
+    <label for="text">Message</label>
+    <textarea id="text" name="text" maxlength="100" required><%= locals.message ? message.text : "" %></textarea>
+  </div>
+  <button class="button" type="submit">Submit</button>
+</form>
