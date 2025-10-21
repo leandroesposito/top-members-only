@@ -67,7 +67,7 @@ async function deleteMessage(message) {
   await runQuery(query, params);
 }
 
-modules.exports = {
+module.exports = {
   insertMessage,
   getMessageById,
   getAllMessages,
