@@ -1,0 +1,23 @@
+<div class="message">
+  <div class="message-header">
+    <h3><%= message.title %></h3>
+    <% if (locals.currentUser && currentUser.is_admin) { %>
+     <form action="/delete/<%= message.id %>" method="POST">
+      <button class="button" type="submit">Delete</button>
+     </form>
+    <% } %>
+  </div>
+  <div class="message-body">
+    <%= message.text %>
+  </div>
+  <% if (locals.currentUser && (currentUser.is_member || currentUser.is_admin)) { %>
+    <div class="message-footer">
+      <div class="author">
+        <%= message.last_name %> <%= message.first_name %>
+      </div>
+      <div class="timestamp">
+        <%= message.timestamp.toISOString().replaceAll(/[a-zA-Z]/g, " ").trim() %>
+      </div>
+    </div>
+  <% } %>
+</div>
