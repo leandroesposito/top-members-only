@@ -1,7 +1,7 @@
 const passport = require("passport");
 
 function logInGet(req, res) {
-  res.status(200).render("log_in.ejs", { title: "Log-in" });
+  res.status(200).render("log_in.ejs", { title: "Log in" });
 }
 
 const logInPost = [
