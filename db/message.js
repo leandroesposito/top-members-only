@@ -21,7 +21,7 @@ async function getMessageById(id) {
   const params = [id];
 
   const rows = await runGetquery(query, params);
-  return rows;
+  return rows[0];
 }
 
 async function getAllMessages() {
