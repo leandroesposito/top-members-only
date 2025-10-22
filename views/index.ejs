@@ -10,3 +10,10 @@
   Welcome <%= JSON.stringify(currentUser, null,2); %>
   <%- include('./partials/log_out_link.ejs') %>
 <% } %>
+<% if (locals.messages && messages.length > 0) { %>
+ <div class="messages">
+  <% messages.forEach(message => { %>
+   <%- include('./partials/message.ejs', {message}) %>
+  <% }) %>
+ </div>
+<% } %>
