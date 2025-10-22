@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= locals.title ? title : "The club" %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <a href="/">
+        <h1>The Club</h1>
+      </a>
+    </div>
+    <div class="buttons">
+      <%- include('./log_in_link.ejs') %>
+      <%- include('./sign_up_link.ejs') %>
+      <%- include('./become_member.ejs') %>
+      <%- include('./log_out_link.ejs') %>
+    </div>
+    <div class="routes">
+      <a href="/">Home</a>
+    </div>
+    <%- include('./current_user.ejs') %>
+  </header>
+  <div class="body">
+    <div class="page-title">
+      <h2>
+        <%= locals.title ? title : "The club" %>
+      </h2>
+    </div>
+    <%- include('./flash_messages.ejs') %>
+    <main>
