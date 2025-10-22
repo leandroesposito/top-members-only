@@ -10,7 +10,7 @@ const users = [
     first_name: "Alice",
     last_name: "Johnson",
     username: "alice.j",
-    password: "hashed_password_1", // Example hashed password
+    password: "hashed_password_1",
     is_member: true,
     is_admin: false,
   },
@@ -19,7 +19,7 @@ const users = [
     first_name: "Bob",
     last_name: "Smith",
     username: "bob.s",
-    password: "hashed_password_2", // Example hashed password
+    password: "hashed_password_2",
     is_member: true,
     is_admin: true,
   },
@@ -28,7 +28,7 @@ const users = [
     first_name: "Charlie",
     last_name: "Brown",
     username: "charlie.b",
-    password: "hashed_password_3", // Example hashed password
+    password: "hashed_password_3",
     is_member: false,
     is_admin: false,
   },
@@ -37,7 +37,7 @@ const users = [
     first_name: "Dana",
     last_name: "White",
     username: "dana.w",
-    password: "hashed_password_4", // Example hashed password
+    password: "hashed_password_4",
     is_member: true,
     is_admin: true,
   },
@@ -46,7 +46,7 @@ const users = [
     first_name: "Eva",
     last_name: "Green",
     username: "eva.g",
-    password: "hashed_password_5", // Example hashed password
+    password: "hashed_password_5",
     is_member: false,
     is_admin: false,
   },
@@ -54,7 +54,7 @@ const users = [
     first_name: "admin",
     last_name: "admin",
     username: "admin",
-    password: "admin", // Example hashed password
+    password: "admin",
     is_member: false,
     is_admin: true,
   },
@@ -62,7 +62,7 @@ const users = [
     first_name: "member",
     last_name: "member",
     username: "member",
-    password: "member", // Example hashed password
+    password: "member",
     is_member: true,
     is_admin: false,
   },
@@ -70,7 +70,7 @@ const users = [
     first_name: "user",
     last_name: "user",
     username: "user",
-    password: "user", // Example hashed password
+    password: "user",
     is_member: false,
     is_admin: false,
   },
@@ -78,7 +78,7 @@ const users = [
     first_name: "god",
     last_name: "god",
     username: "god",
-    password: "god", // Example hashed password
+    password: "god",
     is_member: true,
     is_admin: true,
   },
