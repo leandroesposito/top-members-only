@@ -31,6 +31,24 @@ async function getAllMessages() {
   return rows;
 }
 
+async function getAllMessagesDetailed() {
+  const query = `
+    SELECT
+      messages.*,
+      users.first_name,
+      users.last_name
+    FROM
+      messages
+      JOIN
+        users
+        ON
+        messages.user_id = users.id;
+  `;
+
+  const rows = await runGetquery(query);
+  return rows;
+}
+
 async function updateMessage(message) {
   const { id, user_id, title, timestamp, text } = message;
   const query = `
@@ -71,6 +89,7 @@ module.exports = {
   insertMessage,
   getMessageById,
   getAllMessages,
+  getAllMessagesDetailed,
   updateMessage,
   deleteMessage,
 };
