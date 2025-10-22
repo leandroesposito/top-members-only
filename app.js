@@ -13,6 +13,8 @@ const signUpRoute = require("./routes/sign_up");
 const logInRouter = require("./routes/log_in");
 const joinRouter = require("./routes/join");
 const newMessageRouter = require("./routes/new_message");
+const indexRouter = require("./routes");
+const deleteRouter = require("./routes/delete");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -72,9 +74,8 @@ app.use("/log-out", (req, res, next) => {
 });
 app.use("/join", joinRouter);
 app.use("/new-message", newMessageRouter);
-app.use("/", (req, res) => {
-  res.status(200).render("index.ejs");
-});
+app.use("/delete", deleteRouter);
+app.use("/", indexRouter);
 
 app.listen(process.env.PORT, (error) => {
   if (error) {
