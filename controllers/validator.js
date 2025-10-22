@@ -1,4 +1,4 @@
-const { body, validationResult } = require("express-validator");
+const { body, param, validationResult } = require("express-validator");
 
 function bodyText(field, maxLength = Number.MAX_SAFE_INTEGER) {
   return body(field)
@@ -28,6 +28,12 @@ function bodyEqual(field1, field2) {
     .withMessage(`${field1} must be equal to ${field2}`);
 }
 
+function paramInt(field, max = Number.MAX_SAFE_INTEGER) {
+  return param(field)
+    .isInt({ min: 0, max: max })
+    .withMessage(`${field} must be a number`);
+}
+
 function checkValidation(req, res, next) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -44,5 +50,6 @@ module.exports = {
   bodyBoolean,
   bodyDate,
   bodyEqual,
+  paramInt,
   checkValidation,
 };
