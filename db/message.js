@@ -61,7 +61,7 @@ async function deleteMessage(message) {
       throw new Error("Invalid parameter type");
   }
 
-  const query = `DELETE FROM messages WERE id = $1`;
+  const query = `DELETE FROM messages WHERE id = $1`;
   const params = [id];
 
   await runQuery(query, params);
