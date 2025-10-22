@@ -1,4 +1,4 @@
-<%- include('./partials/flash_messages.ejs'); %>
+<%- include('./partials/upper_body.ejs') %>
 <form action="/join" method="POST">
   <div class="form-row">
     <label for="member-password">
@@ -10,3 +10,4 @@
     <button class="button" type="submit">Submit</button>
   </div>
 </form>
+<%- include('./partials/lower_body.ejs') %>
