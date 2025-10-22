@@ -1,19 +1,13 @@
-<%- include('./partials/log_in_link.ejs') %>
-<%- include('./partials/sign_up_link.ejs') %>
-
-<%- include('./partials/flash_messages.ejs'); %>
-<%- include('./partials/become_member.ejs'); %>
+<%- include('./partials/upper_body.ejs') %>
 <div>
   <%- include('./partials/new_message_link.ejs') %>
 </div>
-<% if (locals.currentUser) { %>
-  Welcome <%= JSON.stringify(currentUser, null,2); %>
-  <%- include('./partials/log_out_link.ejs') %>
-<% } %>
+
 <% if (locals.messages && messages.length > 0) { %>
- <div class="messages">
+  <div class="messages">
   <% messages.forEach(message => { %>
-   <%- include('./partials/message.ejs', {message}) %>
+    <%- include('./partials/message.ejs', {message}) %>
   <% }) %>
- </div>
+  </div>
 <% } %>
+<%- include('./partials/lower_body.ejs') %>
