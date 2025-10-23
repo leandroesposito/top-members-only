@@ -3,6 +3,7 @@ const connection_config = require("./connection_config");
 const bcrypt = require("bcryptjs");
 const { SQL_DROP } = require("./drop_tables");
 const { SQL_CREATE } = require("./create_tables");
+require("dotenv").config();
 
 const users = [
   {
@@ -10,7 +11,7 @@ const users = [
     first_name: "Alice",
     last_name: "Johnson",
     username: "alice.j",
-    password: "hashed_password_1",
+    password: process.env.ADMIN_PASSWORD,
     is_member: true,
     is_admin: false,
   },
@@ -19,7 +20,7 @@ const users = [
     first_name: "Bob",
     last_name: "Smith",
     username: "bob.s",
-    password: "hashed_password_2",
+    password: process.env.ADMIN_PASSWORD,
     is_member: true,
     is_admin: true,
   },
@@ -28,7 +29,7 @@ const users = [
     first_name: "Charlie",
     last_name: "Brown",
     username: "charlie.b",
-    password: "hashed_password_3",
+    password: process.env.ADMIN_PASSWORD,
     is_member: false,
     is_admin: false,
   },
@@ -37,7 +38,7 @@ const users = [
     first_name: "Dana",
     last_name: "White",
     username: "dana.w",
-    password: "hashed_password_4",
+    password: process.env.ADMIN_PASSWORD,
     is_member: true,
     is_admin: true,
   },
@@ -46,7 +47,7 @@ const users = [
     first_name: "Eva",
     last_name: "Green",
     username: "eva.g",
-    password: "hashed_password_5",
+    password: process.env.ADMIN_PASSWORD,
     is_member: false,
     is_admin: false,
   },
@@ -54,7 +55,7 @@ const users = [
     first_name: "admin",
     last_name: "admin",
     username: "admin",
-    password: "admin",
+    password: process.env.ADMIN_PASSWORD,
     is_member: false,
     is_admin: true,
   },
@@ -78,7 +79,7 @@ const users = [
     first_name: "god",
     last_name: "god",
     username: "god",
-    password: "god",
+    password: process.env.ADMIN_PASSWORD,
     is_member: true,
     is_admin: true,
   },
