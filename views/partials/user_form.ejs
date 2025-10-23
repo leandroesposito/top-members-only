@@ -31,17 +31,6 @@
     />
   </div>
   <div class="form-row">
-    <label for="is-member">Is member</label>
-    <input type="checkbox" id="is-member" name="is-member" maxlength="50"
-      value="on"
-      <%= locals.user && locals.user.is_member ? "checked" : "" %>
-    />
-  </div>
-  <div class="form-row <%= locals.user && !locals.user.is_member ? "hidden" : "" %>">
-    <label for="member-password">Member password</label>
-    <input type="password" id="member-password" name="member-password" />
-  </div>
-  <div class="form-row">
     <label for="is-admin">Is admin</label>
     <input type="checkbox" id="is-admin" name="is-admin" maxlength="50"
       value="on"
