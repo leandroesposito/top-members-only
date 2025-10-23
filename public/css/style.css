@@ -139,7 +139,7 @@ main > .button {
 }
 
 .message,
-form {
+main > form {
   background-color: var(--surface);
   border-radius: 2rem;
   padding: 2rem;
