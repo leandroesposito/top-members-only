@@ -18,12 +18,6 @@ const validateUser = [
     }
     return true;
   }),
-  body("is-member").custom((value, { req }) => {
-    if (value && req.body["member-password"] !== process.env.MEMBER_PASSWORD) {
-      throw new Error("Incorrect member password");
-    }
-    return true;
-  }),
   body("is-admin").custom((value, { req }) => {
     if (value && req.body["admin-password"] !== process.env.ADMIN_PASSWORD) {
       throw new Error("Incorrect admin password");
@@ -47,7 +41,6 @@ const signUpPost = [
       last_name: req.body["last-name"],
       username: req.body["username"],
       password: req.body["password"],
-      is_member: req.body["is-member"] ?? false,
       is_admin: req.body["is-admin"] ?? false,
     };
 
